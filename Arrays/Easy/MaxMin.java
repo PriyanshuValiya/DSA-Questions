@@ -1,5 +1,4 @@
-// Q : Find The Biggest and Smallest Element of Given Array in O(n) Time Complexity.
-
+// https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/
 import java.util.*; 
 
 public class MaxMin {

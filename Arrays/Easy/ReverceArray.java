@@ -1,4 +1,4 @@
-// Q : Print Reverce Array of given Array.
+// https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string
 
 import java.util.*;
 
