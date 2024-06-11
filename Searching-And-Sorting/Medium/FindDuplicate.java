@@ -29,7 +29,7 @@
 
 // Space Complexicity - O(1)
 
-import java.util.*;
+/* import java.util.*;
 
 public class FindDuplicate {
     public static void getDuplicates(int arr[]) {
@@ -48,4 +48,4 @@ public class FindDuplicate {
         int arr[]={1, 2, 3, 4, 3, 4, 1};
         getDuplicates(arr);
     }   
-}
+} */
