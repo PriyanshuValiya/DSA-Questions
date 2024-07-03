@@ -12,12 +12,11 @@ public class DeleteHead {
     }
 
     public static Node head;
-    public static Node tail;
 
     public void addFirst(int data) {
         Node newNode = new Node(data);
         if(head == null) {
-            head = tail = newNode;
+            head = newNode;
             return;
         }
         newNode.next = head;

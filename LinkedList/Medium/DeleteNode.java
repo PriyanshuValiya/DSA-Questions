@@ -23,7 +23,7 @@ public class DeleteNode {
         head = newNode;
     }
 
-    public void print() { // O(n)
+    public void print() {
         Node temp = head;
         while(temp != null) {
             System.out.print(temp.data + " -> ");
@@ -34,17 +34,14 @@ public class DeleteNode {
 
 
     public void deleteNode() {
-        Node prev = head;
-        Node temp = head.next;
-        Node temp2;
+        Node ptr = head;
 
-        while(temp != null) {
-            temp2 = head;
-            if(prev.data > temp.data) {
-                prev = prev.next.next;
+        while(ptr != null && ptr.next != null) {
+            if(ptr.data > ptr.next.data) {
+                ptr = ptr.next;
+            } else {
+                ptr.next = ptr.next.next;
             }
-            prev = prev.next;
-            temp = temp.next;
         }
     }
 
@@ -52,10 +49,13 @@ public class DeleteNode {
         DeleteNode ll = new DeleteNode();
         
         ll.addFirst(3);
-        ll.addFirst(4);
-        ll.addFirst(5);
         ll.addFirst(2);
-        ll.addFirst(1);
+        ll.addFirst(6);
+        ll.addFirst(5);
+        ll.addFirst(11); 
+        ll.addFirst(10);
+        ll.addFirst(15);
+        ll.addFirst(12); 
 
         ll.print();
         ll.deleteNode();

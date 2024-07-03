@@ -2,16 +2,33 @@
 
 public class ZigzagMatrix {
     public static void getDiogonalMatrix(int arr[][]) {
-        int line = 0;
-        for(int row=0; row < arr.length; row++) {
-            for(int col=0; col < arr[0].length; col++) {
-                    if(((row + col) == line)) {
-                        System.out.println(arr[row][col] + " " + (row+col));
-                        line++;
-                    }
-                }
+        int n = arr.length, idx = 0;
+        int newArr[] = new int[n*n];
+
+        for(int i=0; i < n; i++) {
+            int row = i, col = 0;
+            while(row >= 0) {
+                newArr[idx] = arr[row][col];
+                System.out.print(newArr[idx] + " ");
+                row--;
+                col++;
+                idx++;
             }
+            System.out.println();
         }
+
+        for(int i=1; i < n; i++) {
+            int row = n-1, col = i;
+            while(col < n) {
+                newArr[idx] = arr[row][col];
+                System.out.print(newArr[idx] + " ");
+                row--;
+                col++;
+                idx++;
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
         int arr[][] = {
@@ -23,3 +40,10 @@ public class ZigzagMatrix {
         getDiogonalMatrix(arr);
     }  
 }
+
+/*
+00 01 02 03
+10 11 12 13
+20 21 22 23
+30 31 32 33
+*/

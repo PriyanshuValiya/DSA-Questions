@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list
 
-
 public class RemoveNthNode { 
     public static class Node {
         int data;
@@ -34,8 +33,6 @@ public class RemoveNthNode {
     }
 
     public void removeNthNode(int n) {
-        // Last to n == size - n + 1
-
         Node temp = head;
         int size = 0;
 
@@ -52,13 +49,13 @@ public class RemoveNthNode {
             return;
         }
 
-        int flag = 1;
-        int nm1thNode = size-n; // 3
+        int i = 1;
+        int nm1thNode = size-n; 
         Node prev = head;
 
-        while(flag < nm1thNode) {
+        while(i < nm1thNode) {
             prev = prev.next; 
-            flag++;
+            i++;
         }
         
         prev.next = prev.next.next;

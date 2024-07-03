@@ -12,25 +12,25 @@ public class CountingSort {
     }
 
     public static void main(String[] args) {
-        int arr[] = {6, 3, 10, 9, 2, 4, 9, 7};  
+        int arr[] = {2, 5, 3, 0, 2, 3, 0, 3};  
         int countArr[] = new int[max(arr) + 1];
-
+        int outputArr[] = new int[arr.length];
 
         for(int i=0; i < arr.length; i++) {
             countArr[arr[i]]++;
         }
 
-        int idx = 0;
-        for(int i=0; i <= max(arr) + 1; i++) {
-            while (countArr[i] > i) {
-                arr[idx] = i;
-                idx++;
-                countArr[i]--;
-            }
+        for(int i=1; i < countArr.length; i++) {
+            countArr[i] += countArr[i-1];
         }
 
-        for(int i=0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for(int i=arr.length-1; i >= 0; i--) {
+            outputArr[countArr[arr[i]] - 1] = arr[i];
+            countArr[arr[i]]--;
+        }
+
+        for(int i=0; i < outputArr.length; i++) {
+            System.out.print(outputArr[i] + " ");
         }
     }
 }

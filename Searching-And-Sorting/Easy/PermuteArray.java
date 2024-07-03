@@ -32,7 +32,7 @@ public class PermuteArray {
         }
 
         for(int i=0; i < a.length; i++) {
-            if(key == a[i] + b[i]) {
+            if(key <= a[i] + b[i]) {
                 System.out.println("Yes");
             } else {
                 System.out.println("No");

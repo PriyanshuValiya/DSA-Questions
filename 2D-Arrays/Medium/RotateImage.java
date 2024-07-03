@@ -19,12 +19,12 @@ public class RotateImage {
             }
         }
 
-        int temp[] = new int[matrix.length];
+        int temp = 0;
         
         for(int i=0; i < matrix.length; i++) {
-            temp[i] = newMat[i][0];
+            temp = newMat[i][0];
             newMat[i][0] = newMat[i][matrix[0].length-1];
-            newMat[i][matrix[0].length-1] = temp[i];
+            newMat[i][matrix[0].length-1] = temp;
         }
 
         printMatrix(newMat);

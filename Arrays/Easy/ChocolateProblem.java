@@ -1,23 +1,21 @@
 // https://www.geeksforgeeks.org/chocolate-distribution-problem/
+// Not Completed
 
 import java.util.*;
 
 public class ChocolateProblem {
     public static void main(String[] args) {
-        int arr[] = {12, 4, 7, 9, 2, 23, 25, 41, 30, 40, 28, 42, 30, 44, 48, 43, 50};
-        int m = 7;
+        int arr[] = {3, 4, 1, 9, 56, 7, 9, 12};
+        int m = 5;
+        int diffArr[] = new int[arr.length-1];
         Arrays.sort(arr); 
-        int max=0, min=0, diff=0;
 
-        for(int i=0; i < arr.length-1; i++) {
-            if(i+m-1 >= arr.length) {
-                break;
+            for(int j=0; j < arr.length-1 && j < arr.length+1-m; j++) {
+                diffArr[j] = arr[j+m-1] - arr[j];
             }
-             min = arr[i]; 
-             max = arr[i + m - 1];
-             diff = max - min; 
-        }
 
-        System.out.println("Minimum Difference is : " + diff);
+            Arrays.sort(diffArr);
+
+        System.out.println("Minimum Difference is : " + diffArr[diffArr.length-m+1]);
     }  
 }

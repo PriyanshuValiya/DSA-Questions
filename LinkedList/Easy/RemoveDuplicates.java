@@ -1,5 +1,5 @@
 // https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list
-// Not Completed...
+// Not Completed.
 
 public class RemoveDuplicates {
     public static class Node {
@@ -13,12 +13,11 @@ public class RemoveDuplicates {
     }
 
     public static Node head;
-    public static Node tail;
 
     public void addFirst(int data) {
         Node newNode = new Node(data);
         if(head == null) { 
-            head = tail = newNode;
+            head = newNode;
             return;
         }
         newNode.next = head; 
@@ -36,19 +35,25 @@ public class RemoveDuplicates {
 
     public void removeDuplicates() {
         Node temp1 = head;
-        Node temp2 = head.next;
+        Node temp2 = null;
+        Node prev = null;
         
-        while(temp2.next != null) {
-            if(temp1.data == temp2.data) {
-              temp2 = temp2.next.next;
-            } else {
-              temp2 = temp2.next;
-              System.out.println("\ntemp.data : " + temp2.data);
+        while(temp1 != null && temp1.next != null) {
+            temp2 = temp1;
+            while(temp2.next != null) {
+                if(temp1.data == temp2.data) {
+                    System.out.print(temp1.data + " -> ");
+                }
+                temp2 = temp2.next;
             }
-          System.out.print(temp2.data + " -> ");
-        }
-        System.out.print("null");
-    }
+            temp1 = temp1.next;
+        }System.out.print("Null");
+    } // 12 -> 
+
+    /*
+     temp1 : 12
+     temp2 : 12
+     */
 
     public static void main(String[] args) {
         RemoveDuplicates ll = new RemoveDuplicates();
@@ -61,9 +66,7 @@ public class RemoveDuplicates {
         ll.addFirst(11);
         ll.addFirst(12);
 
-        // 12 11 12 21 41 43 21
-
-        ll.print();
+        // ll.print();
         ll.removeDuplicates();
     }  
 }

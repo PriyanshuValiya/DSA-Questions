@@ -1,66 +1,41 @@
 // https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists
-// Not Complete
+
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class InsertionPoint {
-    public static class Node {
-        int data;
-        Node next;
+    public static void getIntersectionNode(LinkedList<Integer> first, LinkedList<Integer> second) {
+        int i = 0;
+        int prev = 0;
 
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
-
-    public static Node head;
-
-    public void addFirst(int data) {
-        Node newNode = new Node(data);
-        if(head == null) { 
-            head = newNode;
-            return;
-        }
-        newNode.next = head; 
-        head = newNode;
-    }
-
-    public static void print(Node head) { // O(n)
-        Node temp = head;
-        while(temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
-        }
-        System.out.println("null");
-    }
-
-    public static void getIntersectionNode(Node n1, Node n2) {
-        while(n2 != null) {
-            while(n1 != null) {
-              if(n2.data == n1.data) {
-                System.out.println("Intersection Point : " + n2.data);
+         while(i < first.size() && i < second.size()) {
+            if(first.get(i) != second.get(i)) {
+                System.out.println("Intersection Point : " + prev);
                 return;
-              }
-             n1 = n1.next;
             }
-         n2 = n2.next;
-        }
-
-        System.out.println("No Intersection Point Is Found !!");
+            prev = first.get(i);
+            i++;
+         }
    }
 
 
     public static void main(String[] args) {
-        Node first = new Node(3);
-        first.next = new Node(6);
-        first.next.next = new Node(9);
-        first.next.next.next = new Node(15);
-        first.next.next.next.next = new Node(30);
-        print(first);
+        LinkedList<Integer> first = new LinkedList<>();
+        LinkedList<Integer> second = new LinkedList<>();
 
-        Node second = new Node(10);
-        second.next = new Node(15);
-        second.next.next = new Node(30);
-        print(second);
+        first.addFirst(30);
+        first.addFirst(15);
+        first.addFirst(9);
+        first.addFirst(6);
+        first.addFirst(3);
+        Collections.reverse(first);
+        System.out.println("Fist LL : " + first);
+
+        second.addFirst(30);
+        second.addFirst(15);
+        second.addFirst(10);
+        Collections.reverse(second);
+        System.out.println("Second LL : " + second);
 
         getIntersectionNode(first, second);
     }

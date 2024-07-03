@@ -1,16 +1,6 @@
 // https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 
 public class CountInversions {
-    public static int min(int arr[]) {
-        int min = arr[0];
-        for(int i=0; i < arr.length; i++) {
-            if(arr[i] < min) {
-                min = arr[i];
-            }
-        }
-        return min;
-    }
-
     public static void countInversion(int arr[]) {
         int count = 0;
 
@@ -27,7 +17,7 @@ public class CountInversions {
     }
 
     public static void main(String[] args) {
-        int arr[] = {8, 3, 2, 1, 5, 4};
+        int arr[] = {2, 4, 1, 3, 5};
         countInversion(arr);
     }
 }

@@ -6,22 +6,27 @@ public class MaxMin {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int arr[] = new int[n];
+        
+        int min = arr[0];
+        int max = arr[0];
 
         for(int i=0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        for(int i = 1; i < n; i++) {
-            int curr = arr[i]; 
-            int j = i - 1; 
-            while(j >= 0 && curr < arr[j]) { 
-                arr[j+1] = arr[j];
-                j--;
+        for(int i=0; i < arr.length; i++) {
+            if(arr[i] < min) {
+                min = arr[i];
             }
-            arr[j+1] = curr;
         }
 
-        System.out.println("Biggest Element : " + arr[0]);
-        System.out.println("Smallest Element : " + arr[arr.length-1]);
+        for(int i=0; i < arr.length; i++) {
+            if(arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println("Biggest Element : " + max);
+        System.out.println("Smallest Element : " + min);
     }
 }
