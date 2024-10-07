@@ -1,5 +1,5 @@
 // https://www.geeksforgeeks.org/radix-sort
-// Not Complited
+// Not Completed
 
 public class RadixSort {
     public static int getMax(int arr[]) {

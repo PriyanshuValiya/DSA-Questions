@@ -1,8 +1,9 @@
 // https://www.geeksforgeeks.org/problems/rat-in-a-maze-problem/1
 
+package Graphs.Medium;
 import java.util.*;
 
-public class RatInMaze {
+public class RatProblem {
     static class Info {
         int x, y;
         String dir;
