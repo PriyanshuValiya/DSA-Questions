@@ -1,31 +1,32 @@
 // https://leetcode.com/problems/spiral-matrix/description
 
+import java.util.*;
+
 public class SpiralMatrix {
-    public static void getSpriral(int matrix[][]) {
-        int startRow = 0;
-        int startCol = 0;
-        int endRow = matrix.length-1;
-        int endCol = matrix[0].length-1;
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        int startRow = 0, endRow = matrix.length - 1;
+        int startCol = 0, endCol = matrix[0].length - 1;
+        List<Integer> ans = new ArrayList<>();
 
-        while(startRow <= endRow && startCol <= endCol) {
-            // Top Line
-            for(int j = startCol; j <= endCol; j++) {
-                System.out.print(matrix[startRow][j] + " ");
+        while (startRow <= endRow && startCol <= endCol) {
+            for (int i = startCol; i <= endCol; i++) {
+                ans.add(matrix[startRow][i]);
             }
 
-            // Right Line
-            for(int i = startRow+1; i <= endRow; i++) {
-                System.out.print(matrix[i][endCol] + " ");
+            for (int i = startRow + 1; i <= endRow; i++) {
+                ans.add(matrix[i][endCol]);
             }
 
-            // Bottom Line
-            for(int j=endCol-1; j >= startCol; j--) {
-                System.out.print(matrix[endCol][j] + " ");
-            } 
+            if (startRow < endRow) {
+                for (int i = endCol - 1; i >= startCol; i--) {
+                    ans.add(matrix[endRow][i]);
+                }
+            }
 
-            // Left Line
-            for(int i=endRow-1; i >= startRow+1; i--) {
-                System.out.print(matrix[i][startCol] + " ");
+            if (startCol < endCol) {
+                for (int i = endRow - 1; i >= startRow + 1; i--) {
+                    ans.add(matrix[i][startCol]);
+                }
             }
 
             startRow++;
@@ -33,15 +34,18 @@ public class SpiralMatrix {
             endRow--;
             endCol--;
         }
+
+        return ans;
     }
 
     public static void main(String[] args) {
         int matrix[][] = {
-            {1, 2, 3, 4},
-            {5, 6, 7, 8},
-            {9, 10, 11, 12},
-            {13, 14, 15, 16}
+            { 1, 2, 3, 4 },
+            { 5, 6, 7, 8 },
+            { 9, 10, 11, 12 },
+            { 13, 14, 15, 16 }
         };
-        getSpriral(matrix);
+
+        System.out.println(spiralOrder(matrix));
     }
 }
